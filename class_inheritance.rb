@@ -17,13 +17,13 @@ end
 class Manager < Employee
 
   def initialize(name, title, salary, boss, employees)
-    super
+    super(name, title, salary, boss)
     @employees = employees
   end
 
   def bonus(multiplier)
     total = 0
-    employees.each do |emp|
+    @employees.each do |emp|
       total += emp.salary
     end
     return total * multiplier
