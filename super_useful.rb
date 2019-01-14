@@ -38,9 +38,9 @@ end
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
-
+    raise EmptyStringError if name.length == 0
     raise NotBestFriendError if yrs_known < 5
-
+    raise EmptyStringError if fav_pastime.length == 0
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
@@ -60,5 +60,5 @@ class BestFriend
 end
 
 class NotBestFriendError < StandardError; end
-
+class EmptyStringError < StandardError; end
 
