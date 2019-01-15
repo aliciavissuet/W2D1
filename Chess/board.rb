@@ -1,4 +1,5 @@
 require_relative 'piece'
+require 'colorize'
 
 class Board
   attr_reader :chess_board
