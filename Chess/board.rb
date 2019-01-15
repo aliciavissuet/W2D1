@@ -32,6 +32,10 @@ class Board
     @chess_board[pos[0]][pos[1]]
   end
 
+  def []=(pos, value)
+    @chess_board[pos[0]][pos[1]] = value
+  end
+
 end
 
 class NoPieceOnStart < StandardError; end
