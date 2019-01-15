@@ -1,9 +1,10 @@
 class Piece
+  attr_writer :pos
 
-  def initialize(row, col)
+  def initialize(pos)
     # @color = color
     # @board = board
-    @pos = [row, col]
+    @pos = pos
   end
 
 end
