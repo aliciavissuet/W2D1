@@ -25,6 +25,7 @@ class Board
     raise EndPosOccupied unless self[end_pos].is_a?(NullPiece)
     target_piece = self[start_pos]  # Instance of piece
     target_piece.pos = end_pos
+    self[end_pos] = target_piece
     self[start_pos] = NullPiece.new(start_pos)
   end
 
