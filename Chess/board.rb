@@ -1,10 +1,11 @@
 require_relative 'piece'
 
 class Board
-  attr_reader :chess_board
+  attr_reader :chess_board, :sentinel
 
   def initialize
     @chess_board = Array.new(8) {Array.new(8)}
+    @sentinel = NullPiece.instance
     fill_board
   end
 
@@ -14,7 +15,7 @@ class Board
         if idx1 == 0 || idx1 == 1 || idx1 == 6 || idx1 == 7
           @chess_board[idx1][idx2] = Piece.new([idx1, idx2])
         else
-          @chess_board[idx1][idx2] = NullPiece.new([idx1, idx2])
+          @chess_board[idx1][idx2] = sentinel
         end
       end
     end
@@ -26,7 +27,7 @@ class Board
     target_piece = self[start_pos]  # Instance of piece
     target_piece.pos = end_pos
     self[end_pos] = target_piece
-    self[start_pos] = NullPiece.new(start_pos)
+    self[start_pos] = sentinel
   end
 
   def [](pos)
